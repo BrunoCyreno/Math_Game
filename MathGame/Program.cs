@@ -1,10 +1,16 @@
-﻿Console.WriteLine("Player Name: ");
+﻿var date = DateTime.UtcNow;
 
-var name = Console.ReadLine();
-var date = DateTime.UtcNow;
-Menu(name, date);
+string name = getName();
 
-void Menu(string? name, DateTime date)
+Menu(name);
+
+string getName()
+{
+    Console.WriteLine("Player Name: ");
+    var name = Console.ReadLine();
+    return name;
+}
+void Menu(string name)
 {
     //Game main menu. Prompt to select game mode.
     Console.WriteLine("*****************************************************");
@@ -64,3 +70,4 @@ void additionGame() { }
 void subtractionGame() { }
 void multiplicationGame() { }
 void divisionGame() { }
+
