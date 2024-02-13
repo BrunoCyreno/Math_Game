@@ -1,5 +1,7 @@
 var date = DateTime.UtcNow;
 
+List<string> games = new();
+
 string name = getName();
 
 Menu(name);
@@ -12,25 +14,27 @@ string getName()
 }
 void Menu(string name)
 {
-
+   
     //This repeats the game.
     bool isGameOn = true;
 
     do
     {
+        Console.Clear();
         //Game main menu. Prompt to select game mode.
         Console.WriteLine("*****************************************************");
         Console.WriteLine($"Hello {name.ToUpper()}. Hope you're having a good {date.DayOfWeek}. This is a simple math game.\n");
 
         Console.WriteLine(@$"Select your game mode:
-                       A - Addition
-                       S - Subtraction
-                       M - Multiplication
-                       D - Division
-                       Q - Quit Game");
+         A - Addition
+         S - Subtraction
+         M - Multiplication
+         D - Division
+         Q - Quit Game
+         V - View Games History");
         Console.WriteLine("*****************************************************");
 
-
+        
 
         //Save user input and start selected game mode
         var gameSelected = Console.ReadLine().Trim().ToUpper();
@@ -58,16 +62,20 @@ void Menu(string name)
                 break;
 
             case "Q":
+                Console.WriteLine("*****************************************************");
                 Console.WriteLine("Are you sure that you want to quit the game? [Y/N]");
-
                 var quitOption = Console.ReadLine();
-
+                Console.WriteLine("*****************************************************");
                 if (quitOption.Trim().ToUpper() == "Y")
                 {
                     isGameOn = false;
                     Console.WriteLine("Goodbye!");
                     Environment.Exit(0);
                 }
+                break;
+
+            case "V":
+                getGameHistory();
                 break;
 
             default:
@@ -77,11 +85,10 @@ void Menu(string name)
         }
 
     } while (isGameOn);
-
+ 
 }
-//Create methods for each game modes.
-void additionGame()
-{
+void additionGame() 
+{ 
     int lives = 3;
     int points = 0;
     var random = new Random();
@@ -113,8 +120,9 @@ void additionGame()
         Console.Clear();
     }
     Console.WriteLine($"Game finished. Total points: {points}");
+    addToHistory(points, "Addition");
 }
-void subtractionGame()
+void subtractionGame() 
 {
     int lives = 3;
     int points = 0;
@@ -130,13 +138,13 @@ void subtractionGame()
         Console.WriteLine("*****************************************************");
 
         if (int.Parse(answer) == firstNumber - secondNumber)
-        {
+        { 
             Console.WriteLine("correct!");
-            points++;
+            points ++;
             Console.WriteLine("Press any key to continue.");
             Console.ReadLine();
         }
-        else
+        else 
         {
             Console.WriteLine("Wrong!");
             lives--;
@@ -147,13 +155,14 @@ void subtractionGame()
         Console.Clear();
     }
     Console.WriteLine($"Game finished. Total points: {points}");
+    addToHistory(points, "Subtraction");
 }
-void multiplicationGame()
+void multiplicationGame() 
 {
     int lives = 3;
     int points = 0;
     var random = new Random();
-    while (lives > 0)
+    while(lives > 0) 
     {
         int firstNumber = random.Next(1, 11);
         int secondNumber = random.Next(1, 11);
@@ -164,13 +173,13 @@ void multiplicationGame()
         Console.WriteLine("*****************************************************");
 
         if (int.Parse(answer) == firstNumber * secondNumber)
-        {
+        { 
             Console.WriteLine("Correct!");
-            points++;
+            points ++;
             Console.WriteLine("Press any key to continue.");
             Console.ReadLine();
         }
-        else
+        else 
         {
             Console.WriteLine("Wrong!");
             lives--;
@@ -182,13 +191,14 @@ void multiplicationGame()
 
     }
     Console.WriteLine($"Game finished. Total points: {points}");
+    addToHistory(points, "Multiplication");  
 }
-void divisionGame()
+void divisionGame() 
 {
     int lives = 3;
     int points = 0;
 
-    while (lives > 0)
+    while(lives > 0) 
     {
         var divisionNumbers = getDivisionNumbers();
 
@@ -207,7 +217,7 @@ void divisionGame()
             Console.WriteLine("Press any key to continue.");
             Console.ReadLine();
         }
-        else
+        else 
         {
             Console.WriteLine("Wrong!");
             lives--;
@@ -218,6 +228,7 @@ void divisionGame()
         Console.Clear();
     }
     Console.WriteLine($"Game finished. Total points: {points}");
+    addToHistory(points, "Division"); 
 }
 int[] getDivisionNumbers()
 {
@@ -229,13 +240,33 @@ int[] getDivisionNumbers()
 
     while (firstNumber % secondNumber != 0)
     {
-        firstNumber = random.Next(1, 99);
-        secondNumber = random.Next(1, 99);
+         firstNumber = random.Next(1, 99);
+         secondNumber = random.Next(1, 99);
     }
 
     result[0] = firstNumber;
     result[1] = secondNumber;
 
     return result;
+
+}
+void addToHistory(int gamePoints, string gameType)
+{
+    games.Add($"{date} - {gameType} score: {gamePoints} points ");
+}
+void getGameHistory()
+{
+    Console.Clear();
+
+    Console.WriteLine("Previus Scores:");
+    Console.WriteLine("*****************************************************");
+    foreach (string game in games)
+    {
+        Console.WriteLine(game);
+    }
+    Console.WriteLine("*****************************************************");
+
+    Console.WriteLine("Press any key to return");
+    Console.ReadLine();
 
 }
