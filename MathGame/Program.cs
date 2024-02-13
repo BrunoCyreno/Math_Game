@@ -26,12 +26,15 @@ switch (gameSelected)
     case "S":
         Console.WriteLine("Game Mode: Subtraction");
         break;
+
     case "M":
         Console.WriteLine("Game Mode: Multiplication");
         break;
+
     case "D":
         Console.WriteLine("Game Mode: Division");
         break;
+
     case "Q":
         Console.WriteLine("Are you sure that you want to quit the game? [Y/N]");
 
@@ -43,8 +46,8 @@ switch (gameSelected)
         }
         break;
 
-
-
-
-
+    default:
+        Console.WriteLine("Invalid Input");
+        Environment.Exit(0);
+        break;
 }
