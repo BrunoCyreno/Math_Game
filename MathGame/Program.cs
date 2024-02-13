@@ -1,4 +1,4 @@
-﻿var date = DateTime.UtcNow;
+var date = DateTime.UtcNow;
 
 string name = getName();
 
