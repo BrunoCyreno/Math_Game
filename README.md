@@ -1,4 +1,5 @@
-#Math Game
+# Math Game
+
 This is a simple math game made in C#. The goal of the project is to showcase the language's base concepts.
 The game has four game modes:
 
