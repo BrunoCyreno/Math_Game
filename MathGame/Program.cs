@@ -66,8 +66,30 @@ Q - Quit Game");
     }
 }
 //Create methods for each game modes.
-void additionGame() { }
+void additionGame()
+{
+    int lives = 3;
+    var random = new Random();
+    while (lives > 0)
+    {
+        int firstNumber = random.Next(0, 10);
+        int secondNumber = random.Next(0, 10);
+
+        Console.WriteLine($"{firstNumber} + {secondNumber}");
+        var answer = Console.ReadLine();
+
+        if (int.Parse(answer) == firstNumber + secondNumber)
+        {
+            Console.WriteLine("Correct!");
+        }
+        else
+        {
+            Console.WriteLine("Wrong!");
+            lives--;
+        }
+    }
+
+}
 void subtractionGame() { }
 void multiplicationGame() { }
 void divisionGame() { }
-
