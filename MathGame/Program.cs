@@ -21,18 +21,22 @@ switch (gameSelected)
 {
     case "A":
         Console.WriteLine("Game Mode: Addition");
+        additionGame();
         break;
 
     case "S":
         Console.WriteLine("Game Mode: Subtraction");
+        subtractionGame();
         break;
 
     case "M":
         Console.WriteLine("Game Mode: Multiplication");
+        multiplicationGame();
         break;
 
     case "D":
         Console.WriteLine("Game Mode: Division");
+        divisionGame();
         break;
 
     case "Q":
@@ -51,3 +55,9 @@ switch (gameSelected)
         Environment.Exit(0);
         break;
 }
+
+
+void additionGame() { }
+void subtractionGame() { }
+void multiplicationGame() { }
+void divisionGame() { }
