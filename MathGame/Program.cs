@@ -1,4 +1,4 @@
-﻿var date = DateTime.UtcNow;
+var date = DateTime.UtcNow;
 
 string name = getName();
 
@@ -145,5 +145,4 @@ void multiplicationGame()
     Console.WriteLine($"Game finished. Total points: {points}");
 }
 void divisionGame() { }
-
 
