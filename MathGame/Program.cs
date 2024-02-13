@@ -88,6 +88,7 @@ void additionGame()
         {
             Console.WriteLine("Wrong!");
             lives--;
+            Console.WriteLine($"Lives left: {lives}/3");
         }
     }
     Console.WriteLine($"Game finished. Total points: {points}");
@@ -114,6 +115,7 @@ void subtractionGame()
         {
             Console.WriteLine("Wrong!");
             lives--;
+            Console.WriteLine($"Lives left: {lives}/3");
         }
     }
     Console.WriteLine($"Game finished. Total points: {points}");
@@ -130,19 +132,67 @@ void multiplicationGame()
         Console.WriteLine($"{firstNumber} * {secondNumber}?");
         var answer = Console.ReadLine();
 
-        if (int.Parse(answer) = firstNumber * secondNumber)
+        if (int.Parse(answer) == firstNumber * secondNumber)
         {
             Console.WriteLine("Correct!");
             points++;
         }
         else
         {
-            Console.WriteLine("Wrong!")
+            Console.WriteLine("Wrong!");
             lives--;
+            Console.WriteLine($"Lives left: {lives}/3");
         }
 
     }
     Console.WriteLine($"Game finished. Total points: {points}");
 }
-void divisionGame() { }
+void divisionGame()
+{
+    int lives = 3;
+    int points = 0;
 
+    while (lives > 0)
+    {
+        var divisionNumbers = getDivisionNumbers();
+
+        int firstNumber = divisionNumbers[0];
+        int secondNumber = divisionNumbers[1];
+
+        Console.WriteLine($"{firstNumber} / {secondNumber}?");
+        var answer = Console.ReadLine();
+
+        if (int.Parse(answer) == firstNumber / secondNumber)
+        {
+            Console.WriteLine("Correct!");
+            points++;
+        }
+        else
+        {
+            Console.WriteLine("Wrong!");
+            lives--;
+            Console.WriteLine($"Lives left: {lives}/3");
+        }
+    }
+    Console.WriteLine($"Game finished. Total points: {points}");
+}
+int[] getDivisionNumbers()
+{
+    var random = new Random();
+    int firstNumber = random.Next(1, 99);
+    int secondNumber = random.Next(1, 99);
+
+    var result = new int[2];
+
+    while (firstNumber % secondNumber != 0)
+    {
+        firstNumber = random.Next(1, 99);
+        secondNumber = random.Next(1, 99);
+    }
+
+    result[0] = firstNumber;
+    result[1] = secondNumber;
+
+    return result;
+
+}
