@@ -77,6 +77,7 @@ void additionGame()
         int secondNumber = random.Next(1, 11);
 
         Console.WriteLine($"{firstNumber} + {secondNumber}?");
+
         var answer = Console.ReadLine();
 
         if (int.Parse(answer) == firstNumber + secondNumber)
@@ -120,5 +121,3 @@ void subtractionGame()
 }
 void multiplicationGame() { }
 void divisionGame() { }
-
-
