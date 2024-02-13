@@ -66,8 +66,84 @@ Q - Quit Game");
     }
 }
 //Create methods for each game modes.
-void additionGame() { }
-void subtractionGame() { }
-void multiplicationGame() { }
+void additionGame()
+{
+    int lives = 3;
+    int points = 0;
+    var random = new Random();
+    while (lives > 0)
+    {
+        int firstNumber = random.Next(1, 11);
+        int secondNumber = random.Next(1, 11);
+
+        Console.WriteLine($"{firstNumber} + {secondNumber}?");
+        var answer = Console.ReadLine();
+
+        if (int.Parse(answer) == firstNumber + secondNumber)
+        {
+            Console.WriteLine("Correct!");
+            points++;
+        }
+        else
+        {
+            Console.WriteLine("Wrong!");
+            lives--;
+        }
+    }
+    Console.WriteLine($"Game finished. Total points: {points}");
+}
+void subtractionGame()
+{
+    int lives = 3;
+    int points = 0;
+    var random = new Random();
+    while (lives > 0)
+    {
+        int firstNumber = random.Next(1, 11);
+        int secondNumber = random.Next(1, 11);
+
+        Console.WriteLine($"{firstNumber} - {secondNumber}?");
+        var answer = Console.ReadLine();
+
+        if (int.Parse(answer) == firstNumber - secondNumber)
+        {
+            Console.WriteLine("correct!");
+            points++;
+        }
+        else
+        {
+            Console.WriteLine("Wrong!");
+            lives--;
+        }
+    }
+    Console.WriteLine($"Game finished. Total points: {points}");
+}
+void multiplicationGame()
+{
+    int lives = 3;
+    int points = 0;
+    var random = new Random();
+    while (lives > 0)
+    {
+        int firstNumber = random.Next(1, 11);
+        int secondNumber = random.Next(1, 11);
+        Console.WriteLine($"{firstNumber} * {secondNumber}?");
+        var answer = Console.ReadLine();
+
+        if (int.Parse(answer) = firstNumber * secondNumber)
+        {
+            Console.WriteLine("Correct!");
+            points++;
+        }
+        else
+        {
+            Console.WriteLine("Wrong!")
+            lives--;
+        }
+
+    }
+    Console.WriteLine($"Game finished. Total points: {points}");
+}
 void divisionGame() { }
+
 
