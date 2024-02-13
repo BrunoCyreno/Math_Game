@@ -69,18 +69,21 @@ Q - Quit Game");
 void additionGame()
 {
     int lives = 3;
+    int points = 0;
     var random = new Random();
     while (lives > 0)
     {
-        int firstNumber = random.Next(0, 10);
-        int secondNumber = random.Next(0, 10);
+        int firstNumber = random.Next(1, 11);
+        int secondNumber = random.Next(1, 11);
 
-        Console.WriteLine($"{firstNumber} + {secondNumber}");
+        Console.WriteLine($"{firstNumber} + {secondNumber}?");
+
         var answer = Console.ReadLine();
 
         if (int.Parse(answer) == firstNumber + secondNumber)
         {
             Console.WriteLine("Correct!");
+            points++;
         }
         else
         {
@@ -88,8 +91,33 @@ void additionGame()
             lives--;
         }
     }
-
+    Console.WriteLine($"Game finished. Total points: {points}");
 }
-void subtractionGame() { }
+void subtractionGame()
+{
+    int lives = 3;
+    int points = 0;
+    var random = new Random();
+    while (lives > 0)
+    {
+        int firstNumber = random.Next(1, 11);
+        int secondNumber = random.Next(1, 11);
+
+        Console.WriteLine($"{firstNumber} - {secondNumber}?");
+        var answer = Console.ReadLine();
+
+        if (int.Parse(answer) == firstNumber - secondNumber)
+        {
+            Console.WriteLine("correct!");
+            points++;
+        }
+        else
+        {
+            Console.WriteLine("Wrong!");
+            lives--;
+        }
+    }
+    Console.WriteLine($"Game finished. Total points: {points}");
+}
 void multiplicationGame() { }
 void divisionGame() { }
