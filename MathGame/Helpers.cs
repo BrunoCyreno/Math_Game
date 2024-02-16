@@ -1,8 +1,10 @@
-﻿namespace MathGame
+﻿using MathGame.Models;
+
+namespace MathGame
 {
     internal class Helpers
     {
-        static List<string> games = new();
+        internal static List<Game> games = new List<Game>();
         internal static int[] getDivisionNumbers()
         {
             var random = new Random();
@@ -25,7 +27,12 @@
         }
         internal static void addToHistory(int gamePoints, string gameType)
         {
-            games.Add($"{DateTime.Now} - {gameType} score: {gamePoints} points ");
+            games.Add(new Game
+            {
+                Date = DateTime.Now,
+                Score = gamePoints,
+                Type = gameType
+            });
         }
         internal static void getGameHistory()
         {
@@ -33,9 +40,9 @@
 
             Console.WriteLine("Previus Scores:");
             Console.WriteLine("*****************************************************");
-            foreach (string game in games)
+            foreach (var game in games)
             {
-                Console.WriteLine(game);
+                Console.WriteLine($"{game.Date} - {game.Type}: {game.Score} points");
             }
             Console.WriteLine("*****************************************************");
 
