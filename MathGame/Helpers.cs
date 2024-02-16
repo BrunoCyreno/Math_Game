@@ -2,7 +2,7 @@
 {
     internal class Helpers
     {
-        static List<string> games;
+        static List<string> games = new();
         internal static int[] getDivisionNumbers()
         {
             var random = new Random();
@@ -25,7 +25,7 @@
         }
         internal static void addToHistory(int gamePoints, string gameType)
         {
-            games.Add($"{date} - {gameType} score: {gamePoints} points ");
+            games.Add($"{DateTime.Now} - {gameType} score: {gamePoints} points ");
         }
         internal static void getGameHistory()
         {

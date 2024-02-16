@@ -2,7 +2,7 @@
 {
     internal class Menu
     {
-        GameEngine engine = new();
+        GameEngine GameEngine = new();
         internal void ShowMenu(string name, DateTime date)
         {
 
