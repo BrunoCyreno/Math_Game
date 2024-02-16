@@ -66,7 +66,7 @@
                         break;
 
                     case "V":
-                        getGameHistory();
+                        Helpers.getGameHistory();
                         break;
 
                     default:

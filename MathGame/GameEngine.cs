@@ -35,7 +35,7 @@
                 Console.Clear();
             }
             Console.WriteLine($"Game finished. Total points: {points}");
-            addToHistory(points, "Addition");
+            Helpers.addToHistory(points, "Addition");
         }
         internal void subtractionGame()
         {
@@ -70,7 +70,7 @@
                 Console.Clear();
             }
             Console.WriteLine($"Game finished. Total points: {points}");
-            addToHistory(points, "Subtraction");
+            Helpers.addToHistory(points, "Subtraction");
         }
         internal void multiplicationGame()
         {
@@ -106,7 +106,7 @@
 
             }
             Console.WriteLine($"Game finished. Total points: {points}");
-            addToHistory(points, "Multiplication");
+            Helpers.addToHistory(points, "Multiplication");
         }
         internal void divisionGame()
         {
@@ -115,7 +115,7 @@
 
             while (lives > 0)
             {
-                var divisionNumbers = getDivisionNumbers();
+                var divisionNumbers = Helpers.getDivisionNumbers();
 
                 int firstNumber = divisionNumbers[0];
                 int secondNumber = divisionNumbers[1];
@@ -143,7 +143,7 @@
                 Console.Clear();
             }
             Console.WriteLine($"Game finished. Total points: {points}");
-            addToHistory(points, "Division");
+            Helpers.addToHistory(points, "Division");
         }
 
     }
