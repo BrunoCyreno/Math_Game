@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MathGame
+﻿namespace MathGame
 {
     internal class Menu
     {
+        GameEngine engine = new();
         internal void ShowMenu(string name, DateTime date)
         {
 
@@ -39,22 +34,22 @@ namespace MathGame
                 {
                     case "A":
                         Console.WriteLine("Game Mode: Addition");
-                        additionGame();
+                        GameEngine.additionGame();
                         break;
 
                     case "S":
                         Console.WriteLine("Game Mode: Subtraction");
-                        subtractionGame();
+                        GameEngine.subtractionGame();
                         break;
 
                     case "M":
                         Console.WriteLine("Game Mode: Multiplication");
-                        multiplicationGame();
+                        GameEngine.multiplicationGame();
                         break;
 
                     case "D":
                         Console.WriteLine("Game Mode: Division");
-                        divisionGame();
+                        GameEngine.divisionGame();
                         break;
 
                     case "Q":
