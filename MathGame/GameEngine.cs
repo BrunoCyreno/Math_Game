@@ -1,4 +1,5 @@
-﻿namespace MathGame
+﻿using MathGame.Models;
+namespace MathGame
 {
     internal class GameEngine
     {
@@ -35,7 +36,7 @@
                 Console.Clear();
             }
             Console.WriteLine($"Game finished. Total points: {points}");
-            Helpers.addToHistory(points, "Addition");
+            Helpers.addToHistory(points, GameType.Addition);
         }
         internal void subtractionGame()
         {
@@ -70,7 +71,7 @@
                 Console.Clear();
             }
             Console.WriteLine($"Game finished. Total points: {points}");
-            Helpers.addToHistory(points, "Subtraction");
+            Helpers.addToHistory(points, GameType.Subtraction);
         }
         internal void multiplicationGame()
         {
@@ -106,7 +107,7 @@
 
             }
             Console.WriteLine($"Game finished. Total points: {points}");
-            Helpers.addToHistory(points, "Multiplication");
+            Helpers.addToHistory(points, GameType.Multiplication);
         }
         internal void divisionGame()
         {
@@ -143,7 +144,7 @@
                 Console.Clear();
             }
             Console.WriteLine($"Game finished. Total points: {points}");
-            Helpers.addToHistory(points, "Division");
+            Helpers.addToHistory(points, GameType.Division);
         }
 
     }
