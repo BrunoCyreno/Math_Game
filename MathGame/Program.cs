@@ -6,14 +6,6 @@ var date = DateTime.UtcNow;
 
 List<string> games = new();
 
-string name = getName();
+string name = Helpers.getName();
 
 menu.ShowMenu(name, date);
-
-string getName()
-{
-    Console.WriteLine("Player Name: ");
-    var name = Console.ReadLine();
-    return name;
-}
-
