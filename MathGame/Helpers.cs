@@ -50,5 +50,26 @@ namespace MathGame
             Console.ReadLine();
 
         }
+        internal static string validateResult(string answer) 
+        {
+            while (string.IsNullOrEmpty(answer) || !Int32.TryParse(answer, out _))
+            {
+                Console.WriteLine("ERROR: Your answer needs to be an integer. Try again.");
+                answer = Console.ReadLine();
+            }
+            return answer;
+        }
+
+        internal static string getName()
+        {
+            Console.WriteLine("Player Name: ");
+            var name = Console.ReadLine();
+            while (string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("ERROR: Name can't be empty!");
+                name = Console.ReadLine();
+            }
+            return name;
+        }
     }
 }
