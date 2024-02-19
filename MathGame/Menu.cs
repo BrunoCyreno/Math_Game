@@ -21,15 +21,13 @@
          S - Subtraction
          M - Multiplication
          D - Division
+         R - Random
          Q - Quit Game
          V - View Games History");
                 Console.WriteLine("*****************************************************");
-
-
-
                 //Save user input and start selected game mode
                 var gameSelected = Console.ReadLine().Trim().ToUpper();
-
+               
                 switch (gameSelected)
                 {
                     case "A":
@@ -52,6 +50,11 @@
                         GameEngine.divisionGame();
                         break;
 
+                    case "R":
+                        Console.WriteLine("Game Mode: Random");
+                        GameEngine.randomGame();
+                        break;
+
                     case "Q":
                         Console.WriteLine("*****************************************************");
                         Console.WriteLine("Are you sure that you want to quit the game? [Y/N]");
@@ -70,8 +73,8 @@
                         break;
 
                     default:
-                        Console.WriteLine("Invalid Input");
-                        Environment.Exit(0);
+                        Console.WriteLine("ERROR: Must select a valid game mode! Press ENTER to continue...");
+                        gameSelected = Console.ReadLine();
                         break;
                 }
 
