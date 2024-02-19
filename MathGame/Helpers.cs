@@ -25,7 +25,7 @@ namespace MathGame
             return result;
 
         }
-        internal static void addToHistory(int gamePoints, string gameType)
+        internal static void addToHistory(int gamePoints, GameType gameType)
         {
             games.Add(new Game
             {
