@@ -59,7 +59,6 @@ namespace MathGame
             }
             return answer;
         }
-
         internal static string getName()
         {
             Console.WriteLine("Player Name: ");
