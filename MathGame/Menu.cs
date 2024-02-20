@@ -21,6 +21,7 @@
          S - Subtraction
          M - Multiplication
          D - Division
+         R - Random
          Q - Quit Game
          V - View Games History");
                 Console.WriteLine("*****************************************************");
@@ -47,6 +48,11 @@
                     case "D":
                         Console.WriteLine("Game Mode: Division");
                         GameEngine.divisionGame();
+                        break;
+
+                    case "R":
+                        Console.WriteLine("Game Mode: Random");
+                        GameEngine.randomGame();
                         break;
 
                     case "Q":
